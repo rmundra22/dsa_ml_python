@@ -53,6 +53,7 @@ class BinaryTree:
         temp = A.data
         A.data = max_element.data
         max_element.data = temp
+        
         self.max_element.remove(element)
         
     

@@ -69,7 +69,7 @@ def main():
     res['day1'] = 1 # update value of first key
     print(res.maps,'\n')
     
-    print(res['day1'])
+    print(res['day1']) # first occurence
     
     return 0
 

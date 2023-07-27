@@ -47,7 +47,7 @@ The important examples of Dynamic programming algorithms are −
  4. Heaps and Maps (TODO, using with and without heapify library)
  5. Linked List: insert, insert_at, replace, print, length, remove_at 
  6. Doubly Linked List: add elements, insert, print
- 7. Stacks and Queues (TODO)
+ 7. Stacks, Queues, Dequeues (TODO)
  8. Trie: search, insert
  9. Arrays and string
 ```
@@ -81,5 +81,5 @@ The important examples of Dynamic programming algorithms are −
 
 ## References
 ```
- 1. Binary Tree: https://www.tutorialspoint.com/python_data_structure/python_binary_tree.htm
+ 1. https://www.tutorialspoint.com/python_data_structure/index.htm
 ```

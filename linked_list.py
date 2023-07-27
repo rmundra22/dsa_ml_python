@@ -96,7 +96,7 @@ class DoublyLinkedList:
     def __init__(self):
         self.head = None
 
-    # Define the push method to add elements		
+    # Define the push method to add elements in front	
     def push(self, NewVal):
         NewNode = Node(NewVal)
         NewNode.next = self.head
@@ -118,8 +118,7 @@ class DoublyLinkedList:
     # Define the method to print the linked list 
     def listprint(self, node):
         while (node is not None):
-            print(node.data),
-            last = node
+            print(node.data)
             node = node.next
 
 
@@ -130,21 +129,6 @@ if __name__ == "__main__":
     dllist.push(62)
     dllist.insert(dllist.head.next, 13)
     dllist.listprint(dllist.head)
-    
-    # 3 elements as nodes in linked list
-    e1 = LNode("Mon")
-    e2 = LNode("Tue")
-    e3 = LNode("Wed")
-
-    # # create a linked list
-    # list1 = LinkedList()
-    # list1.headval = e1
-
-    # # Link first Node to second node
-    # list1.headval.nextval = e2
-
-    # # Link second Node to third node
-    # e2.nextval = e3
     
     # create linked list
     list_of_elements = [1, 42, 12, 4, 3, 35, 6]
@@ -158,6 +142,5 @@ if __name__ == "__main__":
     linked_list.insert_after_element(6, 64)
     # element will only be inserted if reference element is present
     linked_list.insert_after_element(16, 64)
-    
     linked_list.traverse_and_print()
     
