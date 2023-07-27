@@ -37,4 +37,49 @@ The important examples of Dynamic programming algorithms are −
 * Tower of Hanoi
 
 
-### Link: https://www.tutorialspoint.com/python_data_structure/python_binary_tree.htm
+## Content
+
+> Data Structure
+```
+ 1. Binary Tree: create (insert), remove, print (in-order, pre-order, post-order), traversal, search
+ 2. Graphs (TODO)
+ 3. Hash Tables (TODO)
+ 4. Heaps and Maps (TODO, using with and without heapify library)
+ 5. Linked List: insert, insert_at, replace, print, length, remove_at 
+ 6. Doubly Linked List: add elements, insert, print
+ 7. Stacks and Queues (TODO)
+ 8. Trie: search, insert
+ 9. Arrays and string
+```
+
+> Algorithms (Add comments for time and space complexity)
+```
+ 1. Searching Algorithms: Linear, Binary
+ 2. Sorting Algorithms: Bubble, Quick, Insertion, Shell (TODO), Selection, Heap (TODO), Merge, Radix (TODO), Bucket (TODO), Counting (TODO)
+ 3. Greedy Algorithms: Dijkstra's Algorithm (using with and without Heapipy library)
+ 4. Graph Algorithms: BFS, DFS (using collections library)
+ 5. Bit Manipulation
+ 6. Dynamic Programming (TODO)
+ 7. Backtracking (TODO)
+ 8. Hashing (TODO)
+```
+
+> ML (ML Case Studies and Design)
+```
+ 1. K Means Clustering
+ 2. Movie Recommendor for Flights
+ 3. Tensorflow 2 for experts
+ 4. Python Basics (TODO)
+ 5. Pyspark Basics (TODO)
+```
+
+> Probability Problems in action
+```
+ 1. Bayes Theorem Problems (TODO)
+ 2. Markov Chains
+```
+
+## References
+```
+ 1. Binary Tree: https://www.tutorialspoint.com/python_data_structure/python_binary_tree.htm
+```
