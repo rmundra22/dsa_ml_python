@@ -109,9 +109,11 @@ def create_binary_tree(L):
         
     return btree  
             
+
 if __name__ == "__main__":
-    L = [2, 41, 0, 4, 82]
+    L = [2, 41, 0, 4, 4, 82]
     btree = create_binary_tree(L)
+    print("Printing Tree")
     btree.print_tree()
     btree.search(2)
     btree.search(82)
@@ -122,25 +124,30 @@ if __name__ == "__main__":
     # remove: case 1
     btree = create_binary_tree(L)
     btree.remove(btree, 7)
+    print("Printing Tree")
     btree.print_tree()
     
     # remove: case 2 
     # btree = create_binary_tree(L)
     # btree.remove(btree, 17)
+    # print("Printing Tree")
     # btree.print_tree()
     
     # remove: case 3
     # btree = create_binary_tree(L)
     # btree.remove(btree, 15)
+    # print("Printing Tree")
     # btree.print_tree()
     
     # remove: case 4
     # btree = create_binary_tree(L)
     # btree.remove(btree, 12)
+    # print("Printing Tree")
     # btree.print_tree()
     
     # traversal: 3 types
     # btree = create_binary_tree(L)
+    # print("Printing Tree")
     # print(btree.traversal(btree, "in-order"))
     # print(btree.traversal(btree, "pre-order"))
     # print(btree.traversal(btree, "post-order"))
