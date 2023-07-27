@@ -64,7 +64,7 @@ The important examples of Dynamic programming algorithms are −
  8. Hashing (TODO)
 ```
 
-> ML (ML Case Studies and Design)
+> Case Studies and Tutorials
 ```
  1. K Means Clustering
  2. Movie Recommendor for Flights

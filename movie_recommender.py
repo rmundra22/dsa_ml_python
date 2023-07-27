@@ -31,9 +31,16 @@ def movie_recommendation_by_flight_duration(movie_list, duration):
         return (dict_ord[mov1][0], dict_ord[mov2][0])
    
    
-if __name__ == "__main__": 
+if __name__ == "__main__":
+    """
+    Given a movie list (length of duration) and flight duration, recommend
+    2 free movies to the passenger such that they can stay entertained
+    during the maximum length of flight time.
+    NOTE: Flight Duration always greater than 135
+    """ 
     movie_list = [90, 85, 75, 60, 120, 150, 125, 250]
-    duration = 250
+    duration = 350
     idxs = movie_recommendation_by_flight_duration(movie_list, duration)
-    recommended_movies = [movie_list[idxs[0]], movie_list[idxs[1]]]
-    print(recommended_movies)
+    recommended_movies_durations = [movie_list[idxs[0]], movie_list[idxs[1]]]
+    print(recommended_movies_durations)
+    print("Recommended Movie Indexes: {}, {}".format(idxs[0], idxs[1]))
