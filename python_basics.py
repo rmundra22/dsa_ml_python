@@ -1,6 +1,10 @@
 import collections
 
 def main():
+    """
+    3 // 2 => to get quotient
+    3 % 1 => to get remainder
+    """
     # ALL ABOUT SETS --------------------------------------------------
     list_of_days = ["Mon","Tue","Wed","Thu","Fri","Sat"]
     setA = set(list_of_days)
