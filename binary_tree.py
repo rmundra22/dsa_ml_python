@@ -1,4 +1,11 @@
 class BinaryTree:
+    """
+    For tree with height 'h' i.e., 3 levels
+    - Maximum nodes at level 'h' will be 2^h
+    - Maximum nodes in the entire tree will be 2^(h+1)-1
+    - In perfect binary tree, internal nodes = num_of_leaves - 1
+    - Height of Tree: H, Number of Nodes: N then H = floor(logN with base2)
+    """
     
     def __init__(self, element):
         """ insert, search and remove: O(log(n)) """
