@@ -30,6 +30,8 @@ import heapq
 # If parent is at index 'i' then left child will be at '2i +1' and right child will be at '2i+2'
 # If child node is 'j' than parent node will be 'ceiling[i/2] - 1'
 
+def fx():
+    pass
 
 if __name__ == "__main__":
     H = [21,1,45,78,3,5]

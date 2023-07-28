@@ -57,12 +57,13 @@ The important examples of Dynamic programming algorithms are −
  1. Searching Algorithms: Linear, Binary
  2. Sorting Algorithms: Bubble, Quick, Insertion, Shell (TODO), Selection, Heap (TODO), Merge, Radix (TODO), Bucket (TODO), Counting (TODO)
  3. Greedy Algorithms: Dijkstra's Algorithm (using with and without Heapipy library)
- 4. Graph Algorithms: BFS, DFS (using collections library)
+ 4. Graph Algorithms: BFS, DFS (using collections library), Flood Fill Algo (TODO)
  5. Bit Manipulation (TODO)
  6. Dynamic Programming (TODO)
  7. Backtracking (TODO)
  8. Hashing (TODO)
  9. Heapify Algorithm
+10. Recursion (TODO)
 ```
 
 > Case Studies and Tutorials
