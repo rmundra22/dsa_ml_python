@@ -7,18 +7,18 @@ class graph:
         self.gdict = gdict if gdict else {}
     
 
-# wrong implementation
-# def dfsRecursion(graph, start):
-#     """Check for the visited and unvisited nodes
-#     RE_CHECK: return is not stable
-#     """        
-#     print(start)
+def dfsRecursion(graph, start, visited):
+    """Check for the visited and unvisited nodes
+    RE_CHECK: return is not stable
+    """        
+    if start in visited:
+        return
     
-#     if len(graph[start]) == 0:
-#         return
-    
-#     for val in graph[start]:
-#        dfsRecursion(graph, val) 
+    print(start)
+    visited.add(start)
+    for neighbor in graph[start]:
+        # pass by reference (visited) is required for this to work
+        dfsRecursion(graph, neighbor, visited)
 
 
 
@@ -71,6 +71,7 @@ if __name__ == "__main__":
         "d" : set(["e", "b", "c"]),
         "e" : set(["a", "d"])
     }
-    # dfsRecursion(gdict, 'a')
+    visited = set()
+    dfsRecursion(gdict, 'a', visited)
     print(dfsUsingStack(gdict, 'a')) # ['a', 'b', 'd', 'e', 'c']
     print(bfsUsingQueue(gdict, "a")) # ['a', 'c', 'b', 'd', 'e']
