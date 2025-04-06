@@ -33,6 +33,9 @@ def bfs(graph, startnode):
                 visited.add(node)
                 queue.append(node)
 
+def flood_fill_algo():
+    pass
+
 
 if __name__ == "__main__":
     gdict = { 
@@ -43,4 +46,4 @@ if __name__ == "__main__":
         "e" : set(["a"])
     }
     print(dfs(gdict, 'a'))
-    # bfs(gdict, "a")
+    # print(bfs(gdict, "a"))
