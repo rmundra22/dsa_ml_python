@@ -6,11 +6,13 @@ def countConnectedComponents(graph: dict) -> int:
     stack = deque()
     visited = set()
     
+    connected_components = []
     for k in graph.keys():
         if k not in visited:
             stack.append(k)
             visited.add(k)
             nodes_in_components = 1
+            new_component = set([k])
             while stack:
                 vertex = stack.pop()
                 
@@ -22,10 +24,13 @@ def countConnectedComponents(graph: dict) -> int:
                             
                             if neighbour:
                                 nodes_in_components += 1
+                                new_component.add(neighbour)
                 else:
                     break
+                
+            connected_components.append(new_component)
             total_components += 1
-            print(k, total_components, nodes_in_components)
+            print(k, total_components, nodes_in_components, connected_components)
     
     return total_components
 
