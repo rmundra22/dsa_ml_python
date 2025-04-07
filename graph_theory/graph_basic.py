@@ -24,6 +24,9 @@ def buildDirectedGraph(edges: List[List[int]]) -> dict:
         if ptA not in graph.keys():
             graph[ptA] = set()
             
+        if ptB not in graph.keys():
+            graph[ptB] = set()
+            
         graph[ptA].add(ptB)
     
     return graph
