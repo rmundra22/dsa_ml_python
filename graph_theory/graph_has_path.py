@@ -1,5 +1,5 @@
 from collections import deque
-from graph_basic import buildDirectedGraph
+from graph_basic import buildDirectedGraph, buildUndirectedGraph
 
 def directedGraphHasPathDFS(graph: dict, source: int, destination: int) -> bool:
     """ Directed Graph: Has path from source to destination or not using DFS
@@ -59,6 +59,27 @@ def directedGraphHasPathBFS(graph: dict, source: int, destination: int) -> bool:
             
     return False
 
+def countConnectedComponents(graph: dict) -> int:
+    total_components = 0
+    stack = deque()
+    visited = set()
+    
+    for k in graph.keys():
+        if k not in visited:
+            stack.append(k)
+            visited.add(k)
+            while stack:
+                vertex = stack.pop()
+                
+                for neighbour in graph[vertex]:
+                    if neighbour not in visited:
+                        visited.add(neighbour)
+                        stack.append(neighbour)
+            total_components += 1
+            print(k, total_components)
+    
+    return total_components
+
 if __name__ == "__main__":
     edges_directed = [
         [100, 10], [10, 20], [20, 30], 
@@ -73,7 +94,8 @@ if __name__ == "__main__":
     edges_directed = [
         [100, 10], [10, 20], [20, 30], 
         [30, 70], [30, 40], [30, 60],
-        [40, 50], [500, 40], [50, 60]
+        [40, 50], [500, 40], [50, 60], 
+        [17, None], [19, None]
     ]
     directed_graph = buildDirectedGraph(edges_directed)
     print(directed_graph)
@@ -86,4 +108,17 @@ if __name__ == "__main__":
     print(directedGraphHasPathBFS(directed_graph, 100, 100))
     print(directedGraphHasPathBFS(directed_graph, 100, 60))
     print(directedGraphHasPathBFS(directed_graph, 60, 100))
+    
+    # undirected graph with below mentioned nodes will show 2 components
+    # directed graph with below nodes will show 3 components
+    edges_directed = [
+        [100, 10], [10, 20], [20, 30], 
+        [30, 70], [30, 40], [30, 60],
+        [40, 50], [500, 40], [50, 60], 
+        [17, None], [19, 99]
+    ]
+    
+    directed_graph = buildUndirectedGraph(edges_directed)
+    total_components = countConnectedComponents(directed_graph)
+    print(total_components)
     
