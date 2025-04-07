@@ -21,7 +21,6 @@ def dfsRecursion(graph, start, visited):
         dfsRecursion(graph, neighbor, visited)
 
 
-
 def bfsUsingQueue(graph, startnode):
     """Track the visited and unvisited nodes using queue
     visted means that a node will be explored by adding all its adjacent nodes to visited
@@ -58,6 +57,7 @@ def dfsUsingStack(graph: dict, start_node: str) -> None:
                 stack.append(node)
                 visited.add(node)    
     return path
+
 
 def dfs_flood_fill_or_island_count(grid, r, c):
     rows = len(grid)
