@@ -3,7 +3,7 @@
 > Reference: https://www.youtube.com/watch?v=seDbFvnidnw&list=PLPdtS77PaSuvssIsG1-39AC_31BLu2UUf&index=1&pp=iAQB
 
 
-1. Graph Representations
+✅ 1. Graph Representations
 * Adjacency List vs Adjacency Matrix
 * Directed vs Undirected graphs
 * Weighted vs Unweighted graphs
