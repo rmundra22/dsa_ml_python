@@ -9,7 +9,7 @@ class graph:
 
 def dfsRecursion(graph, start, visited):
     """Check for the visited and unvisited nodes
-    RE_CHECK: return is not stable
+    BFS with recursion doesn't make sense but it is doable
     """        
     if start in visited:
         return
