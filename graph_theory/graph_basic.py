@@ -51,7 +51,7 @@ if __name__ == "__main__":
         [100, 10], [10, 20], [20, 30], 
         [30, 70], [30, 40], [30, 60],
         [40, 50], [40, 500], [50, 60],
-        [17, None], [19, None]
+        [17, None], [19, None], [100, None]
     ]
     directed_graph = buildDirectedGraph(edges_directed)
     print(directed_graph) 
