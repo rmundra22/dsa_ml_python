@@ -45,7 +45,8 @@ def alienDictionaryBfsKahnAlgorithm(words: List[str]) -> str:
 
     return ''.join(result)
 
-# This version uses recurive dfs
+# This version uses iterative dfs
+# TOPO SORT => POST ORDER DFS TRAVERSAL + RESULT.reverse()
 def alienDictionaryDfsIterative(words: List[str]) -> str:
     # Step 1: Build the graph
     graph = defaultdict(set)
