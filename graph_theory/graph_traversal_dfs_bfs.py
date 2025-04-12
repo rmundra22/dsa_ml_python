@@ -1,6 +1,6 @@
 from collections import deque
 
-
+# "TRICK: it is no (B)ull-(S)hit i.e. BFS is not stack but Queue and so DFS is stack"
 class graph:
     
     def __init__(self, gdict = None):

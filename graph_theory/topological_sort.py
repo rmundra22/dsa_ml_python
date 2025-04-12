@@ -2,6 +2,7 @@ from typing import List
 from collections import deque
 
 # leet code problem: #269
+# TODO: Correct the code : not working as expecetd
 def alienDictionary(words: List[str]) -> str:
     # create a graph    
     graph = { c:set() for w in words for c in w }
@@ -30,7 +31,7 @@ def alienDictionary(words: List[str]) -> str:
     # FALSE: visited and a leaf node
     visited = {start: True}
     
-    ans = ["r", "t"]
+    ans = []
     while stack:
         vertex = stack.pop()
         
@@ -42,6 +43,8 @@ def alienDictionary(words: List[str]) -> str:
             else:
                 visited[neighbour] = False
                 ans.append(neighbour)
+            
+            visited[neighbour] = False
                 
     # reverse the solution to get topologically sorted answer
     n = len(ans)

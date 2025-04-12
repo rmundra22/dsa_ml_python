@@ -35,6 +35,13 @@ def countConnectedComponents(graph: dict) -> int:
     return total_components
 
 def bfsShortestRoad():
+    """given an undirected graph and we need to find the distance of the start node
+    to all the other nodes present in the graph. If the node is disconnected to start
+    node than return -1 as distance
+
+    Returns:
+        _type_: _description_
+    """
     queries = int(input())
     result = {}
     for q in range(queries):
@@ -78,10 +85,12 @@ def bfsShortestRoad():
         print(result[q])
         
     return result
-        
     
-        
+def findNearestClone():
+    """
     
+    """
+    return 
 
 if __name__ == "__main__":
     # undirected graph with below mentioned nodes will show 2 components
@@ -98,4 +107,5 @@ if __name__ == "__main__":
     print(total_components)
     
     bfsShortestRoad()
+    findNearestClone()
     
