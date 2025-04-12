@@ -2,6 +2,8 @@ import heapq
 from typing import List, Tuple
 from disjoint_set import DisjointSet
 
+# considers all vertices are in different sets to start with and 
+# then union two sets one by one to find the mst
 def kruskalAlgorithm(graph: dict) -> Tuple[List[List[str]], int]:
     # add all the possible edges from the graph to weighted edge list
     weighted_edges = []
@@ -21,9 +23,11 @@ def kruskalAlgorithm(graph: dict) -> Tuple[List[List[str]], int]:
     mst_edges = []
     total_cost = 0
     for weight, prev_node, next_node in weighted_edges:
+        # find roots for prev and next nodes
         root_prev_node = disjoint_set.find(prev_node)
         root_next_node = disjoint_set.find(next_node)
         
+        # roots are not same then extend an edge for mst
         if root_prev_node != root_next_node:
             mst_edges.append((prev_node, next_node))
             total_cost += weight
