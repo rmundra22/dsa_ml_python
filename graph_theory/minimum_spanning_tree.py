@@ -1,10 +1,40 @@
 import heapq
 from typing import List, Tuple
+from disjoint_set import DisjointSet
+
+def kruskal_algorithm(graph: dict) -> Tuple[List[List[str]], int]:
+    # add all the possible edges from the graph to weighted edge list
+    weighted_edges = []
+    for vertex, neighbors in graph.items():
+        for neighbor, weight in neighbors:
+            if (neighbor, vertex, weight) not in weighted_edges:
+                weighted_edges.append((weight, vertex, neighbors))
+
+    # sort the edges based on weight i.e. key.first
+    weighted_edges.sort()
+    
+    # find all the vertices and initialize DisjointSet class
+    vertices = list(graph.keys())
+    disjoint_set = DisjointSet(vertices)
+    
+    # finding the mst
+    mst_edges = []
+    total_cost = 0
+    for weight, prev_node, next_node in weighted_edges:
+        root_prev_node = disjoint_set.find(prev_node)
+        root_next_node = disjoint_set.find(next_node)
+        
+        if root_prev_node != root_next_node:
+            mst_edges.append((prev_node, next_node))
+            total_cost += weight
+            disjoint_set.union(root_prev_node, root_next_node)
+    
+    return mst_edges, total_cost
 
 # graph is a weighted graph. For each node we have all 
 # its neighbors and weighted edge to that neighbor
 # DIFFERENCE B/W KRUSKAL's and PRIMS in forming Minimum Spanning Tree (MST): 
-# kruskal used Union-Find method where as prims uses priority queue
+# kruskal uses sorted-edges + disjoint-set (union-find method) where as prims uses minimum-priority-queue
 def primsAlgorithm(graph: dict, start: str) -> Tuple[List[List[str]], int]:
     priority_queue = []
     visited = set()
@@ -43,5 +73,11 @@ if __name__ == "__main__":
         "D":[("A", 5), ("B", 2), ("C", 1)],
         "F":[("A", 3), ("B", 4)]
     }
+    
+    # prims takes a weighted undirected graph and a starting node
     (mst_edges, total_cost) = primsAlgorithm(graph, "A")
-    print(mst_edges, total_cost)
+    print("PRIMS: mst:{}, cost:{}".format(mst_edges, total_cost))
+    
+    # kruskal takes only a weighted undirected graph
+    (mst_edges, total_cost) = kruskal_algorithm(graph)
+    print("KRUSKAL: mst:{}, cost:{}".format(mst_edges, total_cost))
