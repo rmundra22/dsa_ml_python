@@ -6,7 +6,7 @@ from collections import deque, defaultdict
 # ✅ Avoided index errors by using for j in range(min_len) and checking mismatch.
 # ✅ Used Kahn’s algorithm (topological sort with BFS) which is more intuitive and easier to debug than recursive DFS in this context.
 # ✅ Clean cycle detection by comparing length of result to in_degree.
-def alienDictionaryKahnAlgorithm(words: List[str]) -> str:
+def alienDictionaryBfsKahnAlgorithm(words: List[str]) -> str:
     # Step 1: Create graph
     graph = defaultdict(set)
     in_degree = {c: 0 for word in words for c in word}
@@ -45,60 +45,65 @@ def alienDictionaryKahnAlgorithm(words: List[str]) -> str:
 
     return ''.join(result)
 
-# TODO: Correct the code : not working as expecetd
-def alienDictionary(words: List[str]) -> str:
-    # create a graph    
-    graph = { c:set() for w in words for c in w }
+# This version uses recurive dfs
+def alienDictionaryDfsIterative(words: List[str]) -> str:
+    # Step 1: Build the graph
+    graph = defaultdict(set)
+    for word in words:
+        for c in word:
+            graph[c]  # ensures all characters are included
 
-    for i in range(len(words)-1):
+    for i in range(len(words) - 1):
         w1, w2 = words[i], words[i + 1]
         min_len = min(len(w1), len(w2))
-        
-        # edge case: need to return for no solution
-        if w1[:min_len] == w2[:min_len] and len(w1) > min_len:
+
+        # Invalid case: prefix conflict
+        if w1[:min_len] == w2[:min_len] and len(w1) > len(w2):
             return ""
-        
-        i = 0
-        while w1[i] == w2[i]:
-            i += 1
-        
-        graph[w1[i]].add(w2[i])
-    
-    print(graph)
-    # traverse a graph using dfs (post order traversal)
-    start = w1[0]
-    stack = deque([start])
-    
-    # if a node is not in visited as key than that node was not visited
-    # TRUE: visited but in current path
-    # FALSE: visited and a leaf node
-    visited = {start: True}
-    
-    ans = []
-    while stack:
-        vertex = stack.pop()
-        
-        for neighbour in graph[vertex]:
-            
-            if neighbour not in visited.keys():
-                stack.append(neighbour)
-                visited[neighbour] = True
-            else:
-                visited[neighbour] = False
-                ans.append(neighbour)
-            
-            visited[neighbour] = False
-                
-    # reverse the solution to get topologically sorted answer
-    n = len(ans)
-    answer = []
-    for i in range(n-1, -1, -1):
-        if len(answer) == 0:
-            answer = [ans[i]]
-        else:
-            answer.append(ans[i])
-            
-    return answer
+
+        for j in range(min_len):
+            if w1[j] != w2[j]:
+                graph[w1[j]].add(w2[j])
+                break
+
+    # Step 2: Iterative DFS with cycle detection
+    visited = {}  # node -> 'unvisited', 'visiting', 'visited'
+    result = []
+
+    for node in graph:
+        if node in visited:
+            continue
+
+        stack = [(node, False)]  # (node, is_post)
+        path = set()  # nodes in current path for cycle detection
+
+        while stack:
+            current, is_post = stack.pop()
+
+            if is_post:
+                visited[current] = "visited"
+                result.append(current)
+                path.discard(current)
+                continue
+
+            if current in visited:
+                if visited[current] == "visiting":
+                    return ""  # cycle detected
+                continue
+
+            visited[current] = "visiting"
+            path.add(current)
+
+            stack.append((current, True))  # Post-order marker
+
+            for neighbor in graph[current]:
+                if neighbor in path:
+                    return ""  # cycle detected
+                if neighbor not in visited:
+                    stack.append((neighbor, False))
+
+    result.reverse()
+    return ''.join(result)
     
 if __name__ == "__main__":
     # ANSWERS: ["wertf", "", ""]
@@ -109,6 +114,10 @@ if __name__ == "__main__":
     ]
     
     for words in word_list:
-        topo_sort = alienDictionaryKahnAlgorithm(words)
+        topo_sort = alienDictionaryBfsKahnAlgorithm(words)
+        print(words, topo_sort)
+        
+    for words in word_list:
+        topo_sort = alienDictionaryDfsIterative(words)
         print(words, topo_sort)
             
