@@ -14,7 +14,7 @@
 * Breadth-First Search (BFS) - Queue-based and Level order traversal (esp. in trees)
 > Use cases: connectivity, pathfinding, cycles, etc.
 
-✅ 3. Cycle Detection
+✅ 3. Cycle Detection (Kruskal Algo - Union Find / DisjointSet)
 * In undirected graphs using DFS + parent tracking
 * In directed graphs using visited + recursion stack (white-gray-black sets)
 > Use cases: dependency resolution, deadlock detection
