@@ -2,13 +2,13 @@ import heapq
 from typing import List, Tuple
 from disjoint_set import DisjointSet
 
-def kruskal_algorithm(graph: dict) -> Tuple[List[List[str]], int]:
+def kruskalAlgorithm(graph: dict) -> Tuple[List[List[str]], int]:
     # add all the possible edges from the graph to weighted edge list
     weighted_edges = []
     for vertex, neighbors in graph.items():
         for neighbor, weight in neighbors:
             if (neighbor, vertex, weight) not in weighted_edges:
-                weighted_edges.append((weight, vertex, neighbors))
+                weighted_edges.append((weight, vertex, neighbor))
 
     # sort the edges based on weight i.e. key.first
     weighted_edges.sort()
@@ -77,7 +77,7 @@ if __name__ == "__main__":
     # prims takes a weighted undirected graph and a starting node
     (mst_edges, total_cost) = primsAlgorithm(graph, "A")
     print("PRIMS: mst:{}, cost:{}".format(mst_edges, total_cost))
-    
+     
     # kruskal takes only a weighted undirected graph
-    (mst_edges, total_cost) = kruskal_algorithm(graph)
+    (mst_edges, total_cost) = kruskalAlgorithm(graph)
     print("KRUSKAL: mst:{}, cost:{}".format(mst_edges, total_cost))
