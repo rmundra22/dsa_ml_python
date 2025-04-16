@@ -52,6 +52,7 @@ def alienDictionaryDfsIterative(words: List[str]) -> str:
     graph = defaultdict(set)
     for word in words:
         for c in word:
+            # calling the key indefault dict will set the key to default
             graph[c]  # ensures all characters are included
 
     for i in range(len(words) - 1):
@@ -68,7 +69,7 @@ def alienDictionaryDfsIterative(words: List[str]) -> str:
                 break
 
     # Step 2: Iterative DFS with cycle detection
-    visited = {}  # node -> 'unvisited', 'visiting', 'visited'
+    visited = {}  # node -> 'unvisited', 'visiting': visiting again now, 'visited': visited earlier
     result = []
 
     for node in graph:
