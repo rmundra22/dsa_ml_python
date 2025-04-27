@@ -21,10 +21,8 @@ def countConnectedComponents(graph: dict) -> int:
                         if neighbour not in visited:
                             visited.add(neighbour)
                             stack.append(neighbour)
-                            
-                            if neighbour:
-                                nodes_in_components += 1
-                                new_component.add(neighbour)
+                            nodes_in_components += 1
+                            new_component.add(neighbour)
                 else:
                     break
                 
@@ -104,7 +102,7 @@ if __name__ == "__main__":
     
     directed_graph = buildUndirectedGraph(edges_directed)
     total_components = countConnectedComponents(directed_graph)
-    print(total_components)
+    print("Total Components: {}".format(total_components))
     
     bfsShortestRoad()
     findNearestClone()
