@@ -1,6 +1,26 @@
 from typing import List
 from collections import deque, defaultdict
 
+def topologicalSort(graph: dict, start: int) -> List[int]:
+    visited = defaultdict(bool)
+    for k in graph.keys():
+        visited[k]
+
+    ans = []
+    def dfs(graph, node):
+        visited[node] = True
+        for neighbour in graph[node]:
+            if not visited[neighbour]:
+                dfs(graph, neighbour)
+                
+        ans.append(node)
+    
+    
+    dfs(graph, start)
+    # reverse the dfs post-order traversal to obtain topological sorted traversal
+    ans.reverse()
+    return ans
+
 # leet code problem: #269
 # ✅ Used defaultdict(set) for clean graph updates.
 # ✅ Avoided index errors by using for j in range(min_len) and checking mismatch.
@@ -122,4 +142,20 @@ if __name__ == "__main__":
     for words in word_list:
         topo_sort = alienDictionaryDfsIterative(words)
         print(words, topo_sort)
+        
+    graph = {
+        0: [1, 2],
+        1: [2, 3, 4],
+        2: [0, 1],
+        3: [1, 5],
+        4: [1],
+        5: [2, 6, 7, 8],
+        6: [5],
+        7: [5, 8],
+        8: [5, 7, 9],
+        9: [8]
+    } 
+    start_node = 0
+    print(topologicalSort(graph, start_node))
+
             
